@@ -10,6 +10,7 @@ router.all('/',async (req,res,next) => {
     next();
 })
 .post('/',async (req,res) => {
+    console.log(req.body);
     const { errors, isValid } = validateRegister(req.body);
     console.log(errors);
     if(!isValid) {return res.status(400).json(errors)}

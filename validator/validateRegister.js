@@ -10,7 +10,7 @@ const validateRegister = data => {
     if(!validator.isEmail(data.email)){
         errors.email = 'Not a valid email address';
     }
-    if(!validator.isEmpty(data.email)){
+    if(validator.isEmpty(data.email)){
         errors.email = 'Email Field is required';
     }
     if(validator.isEmpty(data.password)){

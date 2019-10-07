@@ -7,7 +7,10 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const mongoDB = require('./config/keys').mongoURI;
 const app = express();
+const passport = require('passport');
 
+const register = require('./routes/user/register');
+const login = require('./routes/user/login');
 
 //mongo
 mongoose
@@ -23,10 +26,11 @@ mongoose
 app.use(bodyParser.json());
 app.use(bodyParser.json({type:'application/*+json'}));
 app.use(bodyParser.urlencoded({extended: false}));
+app.use(passport.initialize());
+require('./config/passport')(passport);
 
 //routes
-const register = require('./routes/user/register');
-const login = require('./routes/user/login');
+
 
 app.use('/register',register);
 app.use('/login',login);
