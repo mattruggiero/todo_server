@@ -13,7 +13,6 @@ const validateLogin = data => {
     if(validator.isEmpty(data.password)){
         errors.password = 'Password field is required';
     }
-
     return {
         errors,
         isValid: isEmpty(errors)

@@ -30,9 +30,6 @@ router.all('/',async (req,res,next) => {
         const email = req.body.email;
         const password = req.body.password;
         console.log(email);
-
-        //Once this is tested, remove DB query from route to decouple DB from route code 
-        //let user = await User.findOne({ email });
         let user = await userFindOne({ email });
         if(!user){return res.json({success:false, errors:"User not found"})}
 

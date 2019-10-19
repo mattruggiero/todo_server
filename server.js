@@ -11,6 +11,7 @@ const passport = require('passport');
 
 const register = require('./routes/user/register');
 const login = require('./routes/user/login');
+const taskList = require('./routes/tasks/taskList');
 
 //mongo
 mongoose
@@ -34,6 +35,7 @@ require('./config/passport')(passport);
 
 app.use('/register',register);
 app.use('/login',login);
+app.use('/taskList',taskList);
 
 const port = process.env.PORT || 80;
 app.listen(port, () => console.log(`Server running on port ${port}`));
